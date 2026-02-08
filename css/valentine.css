@@ -172,4 +172,97 @@ body.valentine-page {
 /* no-button dodge quick transition */
 .valentine-page #no-btn { transition: transform 220ms cubic-bezier(.2,.8,.2,1); }
 
+/* Booklet (small booklet / photo book) */
+.booklet-container {
+    max-width: 760px;
+    margin: 1.6rem auto 0 auto;
+    position: relative;
+    perspective: 1200px;
+    padding: 1.2rem;
+}
+.booklet-container {
+    /* background image for the photo album (keeps everything visually inside) */
+    background-image: url('../images/PhotoAlbumBackground.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.booklet-viewport {
+    width: 100%;
+    height: 620px;
+    position: relative;
+    /* fully transparent panel: show background image from the container directly */
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    display: block;
+    border: none;
+    backdrop-filter: none;
+}
+.booklet-page {
+    position: absolute;
+    inset: 16px;
+    background: transparent;
+    display: none;
+    text-align: center;
+    transition: transform 420ms cubic-bezier(.2,.9,.25,1), opacity 320ms ease;
+    display: flex;
+    flex-direction: column;
+}
+.booklet-page.active { display:flex; opacity:1; transform: translateX(0) scale(1); }
+
+/* Reserve a fixed caption area so photo area height is consistent */
+.booklet-photo { flex: 1 1 auto; display:flex; align-items:center; justify-content:center; padding:1.2rem 1.2rem 0.8rem 1.2rem; height: calc(100% - 80px); }
+.booklet-photo img { max-width: 94%; max-height: 100%; object-fit: contain; border-radius: 10px; box-shadow: 0 22px 48px rgba(0,0,0,0.28); border: 6px solid rgba(255,255,255,0.18); }
+.booklet-caption { height: 72px; line-height: 1.2; padding-top: 10px; color: #6b2138; font-weight:700; font-size:1rem; }
+
+.booklet-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 86px;
+    height: 86px;
+    border-radius: 16px;
+    border: none;
+    background: rgba(255,75,120,0.98);
+    color: white;
+    font-size: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 16px 38px rgba(176,58,91,0.16);
+}
+.booklet-btn.left { left: 14px; background: rgba(255,255,255,0.96); color:#b03a5b; border:1px solid rgba(176,58,91,0.08); }
+.booklet-btn.right { right: 14px; }
+.booklet-btn:active { transform: translateY(-50%) translateY(2px); }
+
+/* Title inside booklet */
+.booklet-title {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.88);
+    color: #8a2b47;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 18px rgba(176,58,91,0.06);
+    z-index: 20;
+}
+
+/* Ensure nav buttons and title are clearly visible on top of the background */
+.booklet-container .booklet-btn,
+.booklet-container .booklet-title {
+    z-index: 25;
+}
+
+@media screen and (max-width:520px) {
+    .booklet-viewport { height: 420px; }
+    .booklet-container { max-width: 94%; }
+    .booklet-btn { width:64px; height:64px; font-size:1.6rem; }
+}
+
 

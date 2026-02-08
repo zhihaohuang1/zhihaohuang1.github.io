@@ -3,13 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Let's Connect</title>
+    <title>Pookie Bear</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/valentine.css">
 </head>
 <body class="valentine-page">
-
-    
 
     <main class="row">
         <div class="column large-12" style="padding:1rem 0; text-align:center;">
@@ -28,45 +26,63 @@
         </div>
 
         <div class="column large-12" style="padding:2rem 0 6rem 0;">
-            <h2 class="section-header-allcaps">Our Photo Album</h2>
 
-            <div id="album" class="folio-list" style="display:none;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.2rem;margin-top:1.6rem;">
-                <div class="folio-item">
-                    <a href="images/SFsunrise.jpg"><div class="folio-item__thumb"><img src="images/SFsunrise.jpg" alt="SF sunrise"></div></a>
+            <!-- Booklet: a small booklet-style viewer with two nav buttons -->
+            <div id="booklet" class="booklet-container" style="display:none;">
+                <h2 id="album-title" class="section-header-allcaps booklet-title" style="display:none;opacity:0;transition:opacity .45s;">Our Photo Album</h2>
+                <div class="booklet-viewport">
+                    <div class="booklet-page" data-index="0">
+                        <div class="booklet-photo"><img src="images/SFsunrise.jpg" alt="SF sunrise"></div>
+                        <div class="booklet-caption">Morning in SF</div>
+                    </div>
+                    <div class="booklet-page" data-index="1">
+                        <div class="booklet-photo"><img src="images/montreal.jpeg" alt="Montreal"></div>
+                        <div class="booklet-caption">Stroll in Montreal</div>
+                    </div>
+                    <div class="booklet-page" data-index="2">
+                        <div class="booklet-photo"><img src="images/montreal2.jpeg" alt="Montreal 2"></div>
+                        <div class="booklet-caption">Late afternoon</div>
+                    </div>
+                    <div class="booklet-page" data-index="3">
+                        <div class="booklet-photo"><img src="images/mountain.jpg" alt="Mountain"></div>
+                        <div class="booklet-caption">Mountain hikes</div>
+                    </div>
+                    <div class="booklet-page" data-index="4">
+                        <div class="booklet-photo"><img src="images/widemountain.jpg" alt="Wide mountain"></div>
+                        <div class="booklet-caption">Wide view</div>
+                    </div>
+                    <div class="booklet-page" data-index="5">
+                        <div class="booklet-photo"><img src="images/fieldview.jpeg" alt="Field view"></div>
+                        <div class="booklet-caption">Field day</div>
+                    </div>
+                    <div class="booklet-page" data-index="6">
+                        <div class="booklet-photo"><img src="images/valley.jpg" alt="Valley"></div>
+                        <div class="booklet-caption">Quiet valley</div>
+                    </div>
+                    <div class="booklet-page" data-index="7">
+                        <div class="booklet-photo"><img src="images/stars.jpg" alt="Stars"></div>
+                        <div class="booklet-caption">Starry night</div>
+                    </div>
+                    <div class="booklet-page" data-index="8">
+                        <div class="booklet-photo"><img src="images/fogmountain.jpg" alt="Foggy mountain"></div>
+                        <div class="booklet-caption">Misty morning</div>
+                    </div>
+                    <div class="booklet-page" data-index="9">
+                        <div class="booklet-photo"><img src="images/calanques.jpeg" alt="Calanques"></div>
+                        <div class="booklet-caption">Coastal hike</div>
+                    </div>
+                    <div class="booklet-page" data-index="10">
+                        <div class="booklet-photo"><img src="images/savana.jpg" alt="Savana"></div>
+                        <div class="booklet-caption">Sunset fields</div>
+                    </div>
+                    <div class="booklet-page" data-index="11">
+                        <div class="booklet-photo"><img src="images/roadcloud.jpg" alt="Road"></div>
+                        <div class="booklet-caption">Road trips</div>
+                    </div>
                 </div>
-                <div class="folio-item">
-                    <a href="images/montreal.jpeg"><div class="folio-item__thumb"><img src="images/montreal.jpeg" alt="Montreal"></div></a>
-                </div>
-                <div class="folio-item">
-                    <a href="images/montreal2.jpeg"><div class="folio-item__thumb"><img src="images/montreal2.jpeg" alt="Montreal 2"></div></a>
-                </div>
-                <div class="folio-item">
-                    <a href="images/mountain.jpg"><div class="folio-item__thumb"><img src="images/mountain.jpg" alt="Mountain"></div></a>
-                </div>
-                <div class="folio-item">
-                    <a href="images/widemountain.jpg"><div class="folio-item__thumb"><img src="images/widemountain.jpg" alt="Wide mountain"></div></a>
-                </div>
-                <div class="folio-item">
-                    <a href="images/fieldview.jpeg"><div class="folio-item__thumb"><img src="images/fieldview.jpeg" alt="Field view"></div></a>
-                </div>
-                <div class="folio-item">
-                    <a href="images/valley.jpg"><div class="folio-item__thumb"><img src="images/valley.jpg" alt="Valley"></div></a>
-                </div>
-                <div class="folio-item">
-                    <a href="images/stars.jpg"><div class="folio-item__thumb"><img src="images/stars.jpg" alt="Stars"></div></a>
-                </div>
-                <div class="folio-item">
-                    <a href="images/fogmountain.jpg"><div class="folio-item__thumb"><img src="images/fogmountain.jpg" alt="Foggy mountain"></div></a>
-                </div>
-                <div class="folio-item">
-                    <a href="images/calanques.jpeg"><div class="folio-item__thumb"><img src="images/calanques.jpeg" alt="Calanques"></div></a>
-                </div>
-                <div class="folio-item">
-                    <a href="images/savana.jpg"><div class="folio-item__thumb"><img src="images/savana.jpg" alt="Savana"></div></a>
-                </div>
-                <div class="folio-item">
-                    <a href="images/roadcloud.jpg"><div class="folio-item__thumb"><img src="images/roadcloud.jpg" alt="Road"></div></a>
-                </div>
+
+                <button id="prev-page" class="booklet-btn left" aria-label="Previous page">‹</button>
+                <button id="next-page" class="booklet-btn right" aria-label="Next page">›</button>
             </div>
         </div>
 
@@ -92,7 +108,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             var yes = document.getElementById('yes-btn');
             var no = document.getElementById('no-btn');
-            var album = document.getElementById('album');
+            var bookletEl = document.getElementById('booklet');
             var yesScale = 1;
             var noScale = 1;
 
@@ -101,16 +117,34 @@
                 no.style.transform = 'scale(' + noScale + ')';
             }
 
-            // reveal album with celebration
+            // reveal booklet with celebration
             yes.addEventListener('click', function() {
-                if (album) {
-                    album.style.display = 'grid';
-                    album.style.opacity = 0;
-                    setTimeout(function(){ album.style.transition = 'opacity .5s ease'; album.style.opacity = 1; }, 20);
-                    album.scrollIntoView({behavior:'smooth', block:'start'});
-                    createConfetti(36);
-                    triggerHeartPop(yes);
+                console.log('Pookie: yes clicked');
+                var albumTitle = document.getElementById('album-title');
+                if (albumTitle) {
+                    albumTitle.style.display = 'block';
+                    setTimeout(function(){ albumTitle.style.opacity = 1; }, 20);
                 }
+
+                // re-query booklet element in case DOM changed
+                if (!bookletEl) bookletEl = document.getElementById('booklet');
+                if (bookletEl) {
+                    // ensure it's visible and animating in
+                    try {
+                        bookletEl.style.display = 'block';
+                        bookletEl.style.opacity = 0;
+                        setTimeout(function(){ bookletEl.style.transition = 'opacity .4s ease'; bookletEl.style.opacity = 1; }, 40);
+                        bookletEl.scrollIntoView({behavior:'smooth', block:'start'});
+                        showBookletPage(0);
+                    } catch (err) {
+                        console.error('Error showing booklet:', err);
+                    }
+                } else {
+                    console.warn('Booklet element not found');
+                }
+
+                createConfetti(36);
+                triggerHeartPop(yes);
             });
 
             // when 'no' is clicked, strongly grow yes and shrink no; also nudge/dodge the no button
@@ -153,6 +187,33 @@
                     yes.style.transform = 'scale(' + yesScale + ')';
                 });
             }
+        });
+
+        // Booklet navigation state and functions
+        var currentBookletPage = 0;
+        function showBookletPage(index) {
+            var pages = document.querySelectorAll('.booklet-page');
+            if (!pages || pages.length === 0) return;
+            currentBookletPage = Math.max(0, Math.min(index, pages.length - 1));
+            pages.forEach(function(p) { p.classList.remove('active','left','right'); p.style.display = 'none'; });
+            var current = pages[currentBookletPage];
+            if (current) {
+                current.style.display = 'block';
+                // small page-in animation
+                requestAnimationFrame(function(){ current.classList.add('active'); });
+            }
+            // show/hide nav buttons
+            var prev = document.getElementById('prev-page');
+            var next = document.getElementById('next-page');
+            if (prev) prev.style.visibility = (currentBookletPage === 0) ? 'hidden' : 'visible';
+            if (next) next.style.visibility = (currentBookletPage === pages.length - 1) ? 'hidden' : 'visible';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var prevBtn = document.getElementById('prev-page');
+            var nextBtn = document.getElementById('next-page');
+            if (prevBtn) prevBtn.addEventListener('click', function(){ showBookletPage(currentBookletPage - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', function(){ showBookletPage(currentBookletPage + 1); });
         });
 
         // Create confetti elements that fall and then are removed
