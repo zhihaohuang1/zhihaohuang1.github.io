@@ -22,6 +22,14 @@
                     <button id="yes-btn" class="btn btn--primary">Of course!</button>
                     <button id="no-btn" class="btn btn--stroke">no 😔</button>
                 </div>
+                <!-- Prompt shown after clicking 'Of course!' -->
+                <div id="pookie-ask" style="display:none;margin-top:1.2rem;text-align:center;">
+                    <p id="pookie-prompt" style="margin:0 0 .6rem 0;font-weight:600;color:#6b2138;">Hihi, now that you are my pookie boo, would you like to see some of our favourite memories together?</p>
+                    <div style="display:flex;gap:1rem;justify-content:center;">
+                        <button id="accept-btn" class="btn btn--primary">YAASSS QUEEENN</button>
+                        <button id="maybe-btn" class="btn btn--stroke">Sure?</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -117,34 +125,61 @@
                 no.style.transform = 'scale(' + noScale + ')';
             }
 
-            // reveal booklet with celebration
+            // show a confirmation prompt after initial "Of course!"
             yes.addEventListener('click', function() {
-                console.log('Pookie: yes clicked');
-                var albumTitle = document.getElementById('album-title');
-                if (albumTitle) {
-                    albumTitle.style.display = 'block';
-                    setTimeout(function(){ albumTitle.style.opacity = 1; }, 20);
+                // hide the original small choices and show the prompt
+                var choices = document.getElementById('pookie-choices');
+                var ask = document.getElementById('pookie-ask');
+                if (choices) choices.style.display = 'none';
+                if (ask) ask.style.display = 'block';
+
+                // ensure prompt buttons are wired
+                var accept = document.getElementById('accept-btn');
+                var maybe = document.getElementById('maybe-btn');
+                var acceptScale = 1, maybeScale = 1;
+
+                function applyPromptScales() {
+                    if (accept) accept.style.transform = 'scale(' + acceptScale + ')';
+                    if (maybe) maybe.style.transform = 'scale(' + maybeScale + ')';
                 }
 
-                // re-query booklet element in case DOM changed
-                if (!bookletEl) bookletEl = document.getElementById('booklet');
-                if (bookletEl) {
-                    // ensure it's visible and animating in
-                    try {
-                        bookletEl.style.display = 'block';
-                        bookletEl.style.opacity = 0;
-                        setTimeout(function(){ bookletEl.style.transition = 'opacity .4s ease'; bookletEl.style.opacity = 1; }, 40);
-                        bookletEl.scrollIntoView({behavior:'smooth', block:'start'});
-                        showBookletPage(0);
-                    } catch (err) {
-                        console.error('Error showing booklet:', err);
-                    }
-                } else {
-                    console.warn('Booklet element not found');
+                if (maybe) {
+                    maybe.addEventListener('click', function() {
+                        // clicking "Sure?" makes the first button grow and this one shrink
+                        acceptScale = Math.min(6.0, acceptScale + 0.42);
+                        maybeScale = Math.max(0.18, maybeScale - 0.34);
+                        applyPromptScales();
+                        if (accept) {
+                            accept.classList.add('pulsate');
+                            accept.style.transition = 'transform 0.32s cubic-bezier(.2,.8,.2,1)';
+                            setTimeout(function(){ accept.classList.remove('pulsate'); }, 480);
+                        }
+                        if (maybe) {
+                            maybe.style.transition = 'transform 0.32s cubic-bezier(.2,.8,.2,1)';
+                        }
+                    });
                 }
 
-                createConfetti(36);
-                triggerHeartPop(yes);
+                if (accept) {
+                    accept.addEventListener('click', function() {
+                        // reveal booklet now
+                        var albumTitle = document.getElementById('album-title');
+                        if (albumTitle) {
+                            albumTitle.style.display = 'block';
+                            setTimeout(function(){ albumTitle.style.opacity = 1; }, 20);
+                        }
+                        if (!bookletEl) bookletEl = document.getElementById('booklet');
+                        if (bookletEl) {
+                            bookletEl.style.display = 'block';
+                            bookletEl.style.opacity = 0;
+                            setTimeout(function(){ bookletEl.style.transition = 'opacity .4s ease'; bookletEl.style.opacity = 1; }, 40);
+                            bookletEl.scrollIntoView({behavior:'smooth', block:'start'});
+                            showBookletPage(0);
+                        }
+                        createConfetti(36);
+                        triggerHeartPop(accept);
+                    });
+                }
             });
 
             // when 'no' is clicked, strongly grow yes and shrink no; also nudge/dodge the no button
