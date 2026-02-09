@@ -215,8 +215,27 @@ body.valentine-page {
 /* Reserve a fixed caption area so photo area height is consistent */
 .booklet-photo { flex: 1 1 auto; display:flex; align-items:center; justify-content:center; padding:1.2rem 1.2rem 0.8rem 1.2rem; height: calc(100% - 80px); }
 .booklet-photo img { max-width: 100%; width: auto; height: 100%; object-fit: contain; border-radius: 10px; box-shadow: 0 22px 48px rgba(0,0,0,0.28); border: 6px solid rgba(255,255,255,0.18); }
-.booklet-caption { height: 86px; line-height: 1.2; padding-top: 10px; color: #6b2138; font-weight:700; font-size:1.3rem; }
+.booklet-caption { height: 120px; line-height: 1.15; padding-top: 10px; color: #6b2138; font-weight:800; font-size:2.2rem; }
 
+/* White variation for captions that need to sit on dark/complex backgrounds */
+.booklet-caption.caption--white { color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.55); }
+
+/* Make links inside captions stand out (e.g. the "Diana" link) */
+.booklet-caption a {
+    color: #ff2e72;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.06);
+    transition: background .12s ease, transform .08s ease;
+}
+.booklet-caption a:hover {
+    background: rgba(255,255,255,0.16);
+    transform: translateY(-2px);
+}
+.booklet-caption.caption--white a { color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
 .booklet-btn {
     position: absolute;
     top: 50%;
@@ -267,7 +286,7 @@ body.valentine-page {
     .booklet-viewport { height: 420px; }
     .booklet-container { max-width: 94%; }
     .booklet-btn { width:64px; height:64px; font-size:1.6rem; }
-    .booklet-caption { font-size:1.05rem; height:64px; }
+    .booklet-caption { font-size:1.5rem; height:88px; }
 }
 
 /* Two-up layout for paired images on the same page */
@@ -283,6 +302,42 @@ body.valentine-page {
     height: calc(100% - 8px);
     object-fit: contain;
     border-radius: 8px;
+}
+
+/* Page gate overlay styles */
+.page-gate {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* fully opaque so nothing shows through until unlocked */
+    background: #0b060c;
+    z-index: 99999;
+}
+.page-gate-card {
+    width: 360px;
+    max-width: calc(100% - 32px);
+    background: rgba(255,255,255,0.98);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    text-align: center;
+}
+.page-gate input { outline: none; }
+.page-gate .shake { animation: gate-shake 420ms cubic-bezier(.3,.8,.3,1); }
+@keyframes gate-shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    50% { transform: translateX(8px); }
+    75% { transform: translateX(-6px); }
+    100% { transform: translateX(0); }
+}
+
+/* While the gate is active, prevent scrolling/visibility of page behind */
+body.locked, html.locked {
+    overflow: hidden !important;
+    height: 100vh !important;
 }
 
 @media screen and (max-width:860px) {

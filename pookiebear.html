@@ -9,6 +9,20 @@
 </head>
 <body class="valentine-page">
 
+    <!-- Page gate: password overlay shown until correct password is entered -->
+    <div id="page-gate" class="page-gate" style="display:flex;">
+        <div class="page-gate-card">
+            <h3 style="margin-top:0;margin-bottom:0.6rem;color:#8a2b47;">Open Sesame</h3>
+            <p style="margin:0 0 0.8rem 0;color:#6b2138;">What is my favourite number? </p>
+            <input id="gate-input" type="password" placeholder="Password" style="width:100%;padding:0.8rem 1rem;border-radius:8px;border:1px solid rgba(176,58,91,0.12);font-size:1rem;">
+            <div style="margin-top:0.8rem;display:flex;justify-content:center;gap:0.6rem;">
+                <button id="gate-submit" class="btn btn--primary">Enter</button>
+                <a href="index.html" class="btn btn--stroke">Back</a>
+            </div>
+            <p id="gate-error" style="display:none;margin-top:0.6rem;color:#b03a5b;font-weight:600;">Incorrect password</p>
+        </div>
+    </div>
+
     <main class="row">
         <div class="column large-12" style="padding:1rem 0; text-align:center;">
             <p><a class="btn btn--primary" href="index.html">Back to site</a></p>
@@ -42,31 +56,31 @@
                     <!-- Weeked shots first (Week 2..8) -->
                     <div class="booklet-page" data-index="0">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/our%20second%20date.jpeg" alt="Week 2"></div>
-                        <div class="booklet-caption">Week 2</div>
+                        <div class="booklet-caption">Skating on our second date</div>
                     </div>
                     <div class="booklet-page" data-index="1">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/week3.png" alt="Week 3"></div>
-                        <div class="booklet-caption">Week 3</div>
+                        <div class="booklet-caption">Happy week 3!</div>
                     </div>
                     <div class="booklet-page" data-index="2">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/week%204.jpg" alt="Week 4"></div>
-                        <div class="booklet-caption">Week 4</div>
+                        <div class="booklet-caption">Week 4, what a beautiful smile</div>
                     </div>
                     <div class="booklet-page" data-index="3">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/week%205.jpg" alt="Week 5"></div>
-                        <div class="booklet-caption">Week 5</div>
+                        <div class="booklet-caption">Week 5 of not looking like a donkey</div>
                     </div>
                     <div class="booklet-page" data-index="4">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/week%206.jpg" alt="Week 6"></div>
-                        <div class="booklet-caption">Week 6</div>
+                        <div class="booklet-caption">Week 6 baldies</div>
                     </div>
                     <div class="booklet-page" data-index="5">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/week7.jpeg" alt="Week 7"></div>
-                        <div class="booklet-caption">Week 7</div>
+                        <div class="booklet-caption">Week 7 is for bouldering</div>
                     </div>
                     <div class="booklet-page" data-index="6">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/week%208.jpg" alt="Week 8"></div>
-                        <div class="booklet-caption">Week 8</div>
+                        <div class="booklet-caption">Cursed week 8</div>
                     </div>
 
                     <!-- Paired pages: show part 1/part 2 side-by-side -->
@@ -77,7 +91,7 @@
                                 <img src="images/valentinePhotoAlbum/This%20is%20the%20moment%20that%20made%20Lebron%20cry%20part%202.PNG" alt="Lebron cry 2">
                             </div>
                         </div>
-                        <div class="booklet-caption">That moment (part 1 & 2)</div>
+                        <div class="booklet-caption caption--white">This is the moment that made <a href="https://en.wikipedia.org/wiki/LeBron_James" target="_blank" rel="noopener">勒布朗·詹姆斯</a> cry</div>
                     </div>
                     <div class="booklet-page" data-index="8">
                         <div class="booklet-photo">
@@ -86,7 +100,7 @@
                                 <img src="images/valentinePhotoAlbum/When%20we%20went%20to%20see%20Diana%20part%202.jpeg" alt="Diana 2">
                             </div>
                         </div>
-                        <div class="booklet-caption">When we went to see Diana (parts)</div>
+                        <div class="booklet-caption">When we went to see <a href="https://www.instagram.com/reel/DPZUGzVAaSL/" target="_blank" rel="noopener">Diana</a></div>
                     </div>
                     <div class="booklet-page" data-index="9">
                         <div class="booklet-photo">
@@ -95,7 +109,7 @@
                                 <img src="images/valentinePhotoAlbum/clown%20part%202.jpg" alt="Clown 2">
                             </div>
                         </div>
-                        <div class="booklet-caption">Clown (part 1 & 2)</div>
+                        <div class="booklet-caption">A loaf of clown</div>
                     </div>
                     <div class="booklet-page" data-index="10">
                         <div class="booklet-photo">
@@ -104,7 +118,7 @@
                                 <img src="images/valentinePhotoAlbum/hihi%20part%202.jpeg" alt="Hihi 2">
                             </div>
                         </div>
-                        <div class="booklet-caption">Hihi (part 1 & 2)</div>
+                        <div class="booklet-caption">👀</div>
                     </div>
                     <div class="booklet-page" data-index="11">
                         <div class="booklet-photo">
@@ -113,41 +127,50 @@
                                 <img src="images/valentinePhotoAlbum/awwwnnn%20part%201.jpg" alt="Aww 1b">
                             </div>
                         </div>
-                        <div class="booklet-caption">Awwnnn (variations)</div>
+                        <div class="booklet-caption">Two cuties, except one has no braincell and the other is a dog</div>
                     </div>
 
                     <!-- Misc favorites -->
                     <div class="booklet-page" data-index="12">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/Chelsey%20laughing%20hysterically%20at%20another%20of%20my%20lame%20jokes.png" alt="Chelsey laughing"></div>
-                        <div class="booklet-caption">Chelsey laughing</div>
+                        <div class="booklet-caption">Papa Zhao: "Why were you laughing hysterically at 1am last night?"</div>
                     </div>
                     <div class="booklet-page" data-index="13">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/I%20dont%20think%20I%20like%20wearing%20pajamas...%20espeically%20not%20a%20onesie.jpeg" alt="Onesie"></div>
-                        <div class="booklet-caption">Onesie vibes</div>
+                        <div class="booklet-caption">Someone was definitively happy to see me wear this onesie, it was not me</div>
                     </div>
                     <div class="booklet-page" data-index="14">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/Sassy%20wave,%20very%20manly.jpeg" alt="Sassy wave"></div>
-                        <div class="booklet-caption">Sassy wave</div>
+                        <div class="booklet-caption">AI generated pictures are so realistic nowadays!</div>
                     </div>
-                    <div class="booklet-page" data-index="15">
-                        <div class="booklet-photo"><img src="images/valentinePhotoAlbum/What%20I%20want%20to%20wake%20up%20next%20to.jpg" alt="Wake up next to"></div>
-                        <div class="booklet-caption">What I want to wake up next to</div>
-                    </div>
+                    
                     <div class="booklet-page" data-index="16">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/When%20Chelsey%20got%20kidnapped%20to%20Whistler.jpeg" alt="Whistler"></div>
-                        <div class="booklet-caption">Whistler adventure</div>
+                        <div class="booklet-caption">When Chelsey voluntarily got kidnapped to Whistler</div>
                     </div>
                     <div class="booklet-page" data-index="17">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/baddie.jpg" alt="Baddie"></div>
-                        <div class="booklet-caption">Baddie</div>
+                        <div class="booklet-caption">There is no greater love in this world</div>
                     </div>
                     <div class="booklet-page" data-index="18">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/potluck%3F.JPG" alt="Potluck"></div>
-                        <div class="booklet-caption">Potluck?</div>
+                        <div class="booklet-caption">Are we making gang signs or love signs</div>
                     </div>
                     <div class="booklet-page" data-index="19">
                         <div class="booklet-photo"><img src="images/valentinePhotoAlbum/what%20is%20so%20funny.jpeg" alt="What is so funny"></div>
-                        <div class="booklet-caption">What is so funny?</div>
+                        <div class="booklet-caption">No idea what Chelsey is laughing about again</div>
+                    </div>
+                    <div class="booklet-page" data-index="20">
+                        <div class="booklet-photo"><img src="images/valentinePhotoAlbum/Zhihao%20going%20bald.jpeg" alt="Zhihao going bald"></div>
+                        <div class="booklet-caption">Mao the rat</div>
+                    </div>
+                    <div class="booklet-page" data-index="21">
+                        <div class="booklet-photo"><img src="images/valentinePhotoAlbum/Did%20you%20just%20take%20a%20screemshot%20of%20me%3F.PNG" alt="Screenshot"></div>
+                        <div class="booklet-caption">"Did you just take a screenshot of me? I cant see the light flash on your face Zhihao!"</div>
+                    </div>
+                    <div class="booklet-page" data-index="22">
+                        <div class="booklet-photo"><img src="images/valentinePhotoAlbum/What%20I%20want%20to%20wake%20up%20next%20to.jpg" alt="Wake up next to"></div>
+                        <div class="booklet-caption">What I want to wake up next to, every morning ❤️</div>
                     </div>
                 </div>
 
@@ -172,6 +195,43 @@
             });
         });
     </script>
+
+    <script>
+        // Page gate: require password '142857' to reveal page content
+        (function(){
+                document.addEventListener('DOMContentLoaded', function() {
+                var gate = document.getElementById('page-gate');
+                if (!gate) return;
+                // lock the page so nothing behind the gate is visible or scrollable
+                document.body.classList.add('locked');
+                var input = document.getElementById('gate-input');
+                var submit = document.getElementById('gate-submit');
+                var error = document.getElementById('gate-error');
+                function showError() {
+                    error.style.display = 'block';
+                    input.classList.add('shake');
+                    setTimeout(function(){ input.classList.remove('shake'); }, 420);
+                }
+                function unlock() {
+                    if (input.value === '142857') {
+                        // remove locked state and fade out the gate
+                        document.body.classList.remove('locked');
+                        gate.style.transition = 'opacity .28s ease';
+                        gate.style.opacity = 0;
+                        setTimeout(function(){ gate.parentNode && gate.parentNode.removeChild(gate); }, 320);
+                    } else {
+                        showError();
+                    }
+                }
+                submit.addEventListener('click', unlock);
+                input.addEventListener('keydown', function(e){ if (e.key === 'Enter') unlock(); });
+                // focus the input immediately
+                setTimeout(function(){ input.focus(); }, 120);
+            });
+        })();
+    </script>
+
+    <!-- Instagram embed loader removed (link is on the caption) -->
 
     <script>
         // Pookie interactivity: enhanced with dodge, stronger scaling, heart-pop, and confetti
