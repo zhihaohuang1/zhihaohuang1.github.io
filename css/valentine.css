@@ -215,7 +215,7 @@ body.valentine-page {
 /* Reserve a fixed caption area so photo area height is consistent */
 .booklet-photo { flex: 1 1 auto; display:flex; align-items:center; justify-content:center; padding:1.2rem 1.2rem 0.8rem 1.2rem; height: calc(100% - 80px); }
 .booklet-photo img { max-width: 94%; max-height: 100%; object-fit: contain; border-radius: 10px; box-shadow: 0 22px 48px rgba(0,0,0,0.28); border: 6px solid rgba(255,255,255,0.18); }
-.booklet-caption { height: 72px; line-height: 1.2; padding-top: 10px; color: #6b2138; font-weight:700; font-size:1rem; }
+.booklet-caption { height: 86px; line-height: 1.2; padding-top: 10px; color: #6b2138; font-weight:700; font-size:1.3rem; }
 
 .booklet-btn {
     position: absolute;
@@ -263,6 +263,22 @@ body.valentine-page {
     .booklet-viewport { height: 420px; }
     .booklet-container { max-width: 94%; }
     .booklet-btn { width:64px; height:64px; font-size:1.6rem; }
+    .booklet-caption { font-size:1.05rem; height:64px; }
+}
+
+/* Two-up layout for paired images on the same page */
+.booklet-photo .two-up {
+    display: flex;
+    gap: 0.6rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.booklet-photo .two-up img {
+    width: 48%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 

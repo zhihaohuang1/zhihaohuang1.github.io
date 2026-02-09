@@ -375,7 +375,7 @@
 
                 <h4 class="huge-text">
                     I'd Love To Connect With You.
-                    Let me get to know more about <a id="secret-link" href="pookiebear.html">you</a>.
+                    Let me get to know more about <a href="pookiebear.html">you</a>.
                 </h4>
 
             </div>
@@ -455,25 +455,7 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
-    <script>
-        // Password-gate the pookiebear page: prompt for password 142857
-        (function(){
-            var link = document.getElementById('secret-link');
-            if (!link) return;
-            link.addEventListener('click', function(e){
-                e.preventDefault();
-                var pass = prompt('What is my favorite number?');
-                if (pass === '142857') {
-                    window.location.href = link.getAttribute('href');
-                } else if (pass === null) {
-                    // user cancelled
-                    return;
-                } else {
-                    alert('That ain\'t it man. Try again!');
-                }
-            });
-        })();
-    </script>
+    
 
 </body>
 
